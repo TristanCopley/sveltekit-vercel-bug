@@ -1,0 +1,51 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/about",
+			"dest": "/about/"
+		},
+		{
+			"src": "/about/",
+			"status": 308,
+			"headers": {
+				"Location": "/about"
+			}
+		},
+		{
+			"src": "/sverdle/how-to-play",
+			"dest": "/sverdle/how-to-play/"
+		},
+		{
+			"src": "/sverdle/how-to-play/",
+			"status": 308,
+			"headers": {
+				"Location": "/sverdle/how-to-play"
+			}
+		},
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "/.*",
+			"dest": "/fn"
+		}
+	],
+	"overrides": {
+		"index.html": {
+			"path": ""
+		},
+		"about.html": {
+			"path": "about"
+		},
+		"sverdle/how-to-play.html": {
+			"path": "sverdle/how-to-play"
+		}
+	}
+}
